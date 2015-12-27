@@ -1,0 +1,76 @@
+{
+  "name": "MyApplication",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "http://my-application.com",
+  "author": {
+    "name": "Your Name",
+    "email": "you@somewhere.com",
+    "url": "http://somewhere.com/"
+  },
+  "contributors": [],
+  "license": "SEE LICENSE IN LICENSE.md",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/my/application"
+  },
+  "bugs": {
+    "url": "https://github.com/my/application/issues"
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">=5.3.0",
+    "npm": ">=3.5.2"
+  },
+  "scripts": {
+    "prestart": "",
+    "start": "lite-server --port 8080 --baseDir './public'",
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.0",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "systemjs": "^0.19.9",
+    "rxjs": "^5.0.0-beta.0",
+    "zone.js": "^0.5.10"
+  },
+  "devDependencies": {
+    "debounce": "^1.0.0",
+    "del": "^2.0.2",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-csso": "^1.0.1",
+    "gulp-filter": "^3.0.1",
+    "gulp-inject": "^3.0.0",
+    "gulp-inline-ng2-template": "0.0.9",
+    "gulp-jscs": "^3.0.1",
+    "gulp-jscs-stylish": "^1.1.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-ng-constant": "^1.1.0",
+    "gulp-preprocess": "^1.2.0",
+    "gulp-remove-empty-lines": "0.0.2",
+    "gulp-remove-html-comments": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.10.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-wrapper": "^1.0.0",
+    "jasmine-core": "^2.3.4",
+    "jshint-stylish": "^2.0.1",
+    "karma": "^0.13.14",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-spec-reporter": "0.0.22",
+    "lite-server": "^1.3.1",
+    "merge-stream": "^1.0.0",
+    "phantomjs": "^1.9.18",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

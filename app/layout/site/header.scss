@@ -1,0 +1,40 @@
+
+/**
+ * Site header
+ */
+.site-header {
+	height: $heightHeader;
+	background: $colorPrimary;
+
+	/**
+	 * Navigation
+	 */
+	nav {
+		height: $heightHeader;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.menu {
+			font-size: 0;
+			> li {
+				display: inline-block;
+				margin: 0 2rem 0 0;
+				list-style:	none;
+				vertical-align: top;
+				> a {
+					display: block;
+					position: relative;
+					font-size: $fontSizeNormal;
+					cursor: pointer;
+					color: $colorWhite;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+			&.right > li {
+				margin: 0 0 0 2rem;
+			}
+		}
+	}
+}

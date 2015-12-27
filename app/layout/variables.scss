@@ -1,0 +1,62 @@
+
+/*****************************************************************************
+ * URL's
+ ***/
+
+$urlStatic: '/';
+
+/*****************************************************************************
+ * Text
+ ***/
+
+/* Font family */
+$fontFamily: 'Open Sans', sans-serif;
+
+/* Font weights and styles */
+$fontWeightNormal: 300;
+$fontWeightBold: 400;
+$fontStyleNormal: normal;
+$fontStyleItalic: italic;
+
+/* Font sizes */
+$fontSizeNormal: 1rem;
+$fontSizeSmall: .9rem;
+
+/* Line height */
+$lineHeight: 1.7rem;
+
+/* Vertical margins */
+$marginParagraph: $lineHeight;
+$marginSection: 2rem;
+
+/*****************************************************************************
+ * Colors
+ ***/
+
+/* Basic colors */
+$colorBlack: #000;
+$colorWhite: #fff;
+$colorPrimary: #d70040;
+
+/* Text colors */
+$colorText: #333;
+$colorTextMuted: #ccc;
+$colorTextLink: $colorPrimary;
+
+/* Border colors */
+$colorBorders: #e2e2e2;
+
+/* Social media colors */
+$colorFacebook: #3b5998;
+$colorTwitter: #55acee;
+$colorGoogle: #dd4b39;
+$colorPinterest: #cb2027;
+$colorLinkedIn: #007bb6;
+$colorWhatsapp: #2e8a06;
+
+/*****************************************************************************
+ * Specific elements
+ ***/
+
+/* Header */
+$heightHeader: 3rem;

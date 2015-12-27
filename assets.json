@@ -1,0 +1,36 @@
+{
+  "js": {
+    "env": [
+      "env/*.js"
+    ],
+    "app": [
+      "app/**/*.ts",
+      "!app/**/*.spec.ts"
+    ],
+    "tests": [
+      "app/**/*.spec.ts"
+    ],
+    "karma": [],
+    "vendor": [
+      "node_modules/systemjs/dist/system.js"
+    ]
+  },
+  "html": [
+    "app/**/*.html",
+    "common/**/*.html"
+  ],
+  "scss": {
+    "app": [
+      "app/**/*.scss"
+    ],
+    "main": "app/app.scss"
+  },
+  "css": {
+    "vendor": []
+  },
+  "static": [
+    "static/**/*",
+    "!static/index.html"
+  ],
+  "index": "static/index.html"
+}
