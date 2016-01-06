@@ -11,6 +11,7 @@ var sass = require('gulp-sass');
 var csso = require('gulp-csso');
 var jscs = require('gulp-jscs');
 var debounce = require('debounce');
+var meanie = require('meanie-core');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -35,16 +36,15 @@ var removeHtmlComments = require('gulp-remove-html-comments');
 /**
  * Application dependencies
  */
-var mergeSources = require('./utils/merge-sources');
+var mergeSources = require('./build/utils/merge-sources');
 
 /**
  * Helper vars
  */
 var pkg = require('./package.json');
-var env = require('./env')();
-var config = require('./config');
+var config = meanie.getConfig();
+var tsConfig = require('./tsconfig.json').compilerOptions;
 var build = config.build;
-var noop = function() {};
 
 /*****************************************************************************
  * Helpers
@@ -104,11 +104,10 @@ function environmentStream() {
   var stream = vinylSourceStream(fileName);
   stream.write(JSON.stringify({}));
 
-  //Create ENV constant for configuration and append environment data
+  //Create ENV config and append environment flags
   var ENV = config;
-  ENV.environment = env;
-  ENV.isDevelopment = env !== 'production';
-  ENV.isProduction = env === 'production';
+  ENV.isDevelopment = (config.env === 'development');
+  ENV.isProduction = (config.env === 'production');
 
   //Turn into angular constant module JS file
   return stream
@@ -139,7 +138,7 @@ function refreshConfig(cb) {
  * Clean the public folder
  */
 function cleanPublicFolder() {
-  return del(build.paths.public, {
+  return del(build.path, {
     dot: true
   });
 }
@@ -149,7 +148,7 @@ function cleanPublicFolder() {
  */
 function buildStatic() {
   return gulp.src(build.assets.static)
-    .pipe(gulp.dest(build.paths.public));
+    .pipe(gulp.dest(build.path));
 }
 
 /**
@@ -174,9 +173,7 @@ function buildAppJs() {
       target: 'es6',
       indent: 2
     }))
-    .pipe(typescript({
-      noImplicitAny: true
-    }));
+    .pipe(typescript(tsConfig));
 
   //Minify
   if (build.js.minify.app) {
@@ -191,17 +188,17 @@ function buildAppJs() {
   }
 
   //Determine destination
-  var dest = build.paths.public + '/js';
+  var dest = build.path + '/bundles';
   if (!build.js.minify.app) {
     dest += '/app';
   }
 
-  //Create map filter, add banner and write to destination folder
+  //Create map filter, add banner to non-map files and write to destination folder
   var mapFilter = filter(['!*.map']);
   return stream
-    .pipe(mapFilter)
-    .pipe(wrapper(bannerWrapper()))
-    .pipe(mapFilter.restore())
+    // .pipe(mapFilter)
+    // .pipe(wrapper(bannerWrapper()))
+    // .pipe(mapFilter.restore)
     .pipe(gulp.dest(dest));
 }
 
@@ -239,8 +236,8 @@ function buildVendorJs(done) {
   }
 
   //Determine destination
-  var dest = build.paths.public + '/js';
-  if (!build.js.minify.vendor) {
+  var dest = build.path + '/bundles';
+  if (!build.js.minify.app) {
     dest += '/vendor';
   }
 
@@ -254,7 +251,7 @@ function buildVendorJs(done) {
 function buildAppScss() {
 
   //Create stream
-  var stream = gulp.src(build.assets.scss.main)
+  var stream = gulp.src(build.assets.scss.index)
     .pipe(sass().on('error', sass.logError));
 
   //Initialize source map
@@ -280,7 +277,7 @@ function buildAppScss() {
   }
 
   //Determine destination
-  var dest = build.paths.public + '/css';
+  var dest = build.path + '/css';
   if (!build.css.minify.app) {
     dest += '/app';
   }
@@ -322,7 +319,7 @@ function buildVendorCss(done) {
   }
 
   //Determine destination
-  var dest = build.paths.public + '/css';
+  var dest = build.path + '/css';
   if (!build.css.minify.vendor) {
     dest += '/vendor';
   }
@@ -342,19 +339,19 @@ function buildIndex() {
   //Vendor JS
   if (build.assets.js.vendor.length > 0) {
     if (build.js.minify.vendor) {
-      files.push('js/' + packageFileName('vendor', '.min.js'));
+      files.push('bundles/' + packageFileName('vendor', '.min.js'));
     }
     else {
-      files.push('js/vendor/**/*.js');
+      files.push('bundles/vendor/**/*.js');
     }
   }
 
   //App JS
   if (build.js.minify.app) {
-    files.push('js/' + packageFileName('.min.js'));
+    files.push('bundles/' + packageFileName('.min.js'));
   }
   else {
-    files.push('js/app/**/*.js');
+    files.push('bundles/app/**/*.js');
   }
 
   //Minified vendor CSS
@@ -377,24 +374,24 @@ function buildIndex() {
 
   //Read sources
   var sources = gulp.src(files, {
-    cwd: build.paths.public,
+    cwd: build.path,
     read: false
   });
 
   //Run task
-  return gulp.src(build.assets.index)
+  return gulp.src(build.assets.html.index)
     .pipe(injectInHtml(sources, {
       addRootSlash: false
     }))
     .pipe(preprocess({
       context: {
-        ENV: env,
-        APP: config.client.app
+        ENV: config.env,
+        APP: config.app
       }
     }))
     .pipe(removeHtmlComments())
     .pipe(removeEmptyLines())
-    .pipe(gulp.dest(build.paths.public));
+    .pipe(gulp.dest(build.path));
 }
 
 /*****************************************************************************
@@ -411,7 +408,7 @@ function lintAppJs() {
   )).pipe(cached('lintClient'))
     .pipe(jshint())
     .pipe(jscs())
-    .on('error', noop)
+    .on('error', function() {})
     .pipe(stylish.combineWithHintResults())
     .pipe(jshint.reporter('jshint-stylish'));
 }
@@ -452,7 +449,7 @@ function testAppJs(done) {
 function watchAppJs() {
   gulp.watch(mergeSources(
     build.assets.js.app,
-    build.assets.html
+    build.assets.html.app
   ), debounce(gulp.series(
     lintAppJs, testAppJs, buildAppJs, buildIndex
   ), 200));
@@ -507,7 +504,7 @@ function watchStatic() {
  * Watch index HTML file
  */
 function watchIndex() {
-  gulp.watch(build.assets.index, debounce(gulp.series(
+  gulp.watch(build.assets.html.index, debounce(gulp.series(
     buildIndex
   ), 200));
 }

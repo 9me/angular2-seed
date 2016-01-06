@@ -1,0 +1,40 @@
+{
+  "js": {
+    "env": [
+      "config/*.js"
+    ],
+    "app": [
+      "app/**/*.ts",
+      "!app/**/*.spec.ts"
+    ],
+    "tests": [
+      "app/**/*.spec.ts"
+    ],
+    "karma": [],
+    "vendor": [
+      "node_modules/systemjs/dist/system.src.js",
+      "node_modules/rxjs/bundles/Rx.js",
+      "node_modules/angular2/bundles/angular2-polyfills.js",
+      "node_modules/angular2/bundles/angular2.dev.js"
+    ]
+  },
+  "html": {
+    "app": [
+      "app/**/*.html",
+      "!app/index.html"
+    ],
+    "index": "app/index.html"
+  },
+  "scss": {
+    "app": [
+      "app/**/*.scss"
+    ],
+    "index": "app/index.scss"
+  },
+  "css": {
+    "vendor": []
+  },
+  "static": [
+    "static/**/*"
+  ]
+}

@@ -1,6 +1,7 @@
+'use strict';
 
 /**
- * Helper to merge sources
+ * Helper to merge sources into one flat array
  */
 module.exports = function mergeSources() {
   var sources = arguments;
