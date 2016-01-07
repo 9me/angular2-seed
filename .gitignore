@@ -2,12 +2,18 @@
 .DS_Store
 Thumbs.db
 *.sublime-*
+.idea
+.vscode
 
-# Node
-node_modules/
-npm-debug.log
+# External
+node_modules
+build/typings/tsd
 
 # App
+app/config.ts
 config/local.yml
-vendor/
-public/
+dist
+
+# Logs
+logs
+*.log

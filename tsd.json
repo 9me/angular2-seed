@@ -2,7 +2,32 @@
   "version": "v4",
   "repo": "DefinitelyTyped/DefinitelyTyped",
   "ref": "master",
-  "path": "build/typings",
-  "bundle": "build/typings/tsd.d.ts",
-  "installed": {}
+  "path": "build/typings/tsd",
+  "bundle": "build/typings/tsd/tsd.d.ts",
+  "installed": {
+    "node/node.d.ts": {
+      "commit": "f11e49cfb77f99678657ddfe5d43017849675c64"
+    },
+    "orchestrator/orchestrator.d.ts": {
+      "commit": "f11e49cfb77f99678657ddfe5d43017849675c64"
+    },
+    "q/Q.d.ts": {
+      "commit": "f11e49cfb77f99678657ddfe5d43017849675c64"
+    },
+    "del/del.d.ts": {
+      "commit": "f11e49cfb77f99678657ddfe5d43017849675c64"
+    },
+    "glob/glob.d.ts": {
+      "commit": "f11e49cfb77f99678657ddfe5d43017849675c64"
+    },
+    "minimatch/minimatch.d.ts": {
+      "commit": "f11e49cfb77f99678657ddfe5d43017849675c64"
+    },
+    "es6-promise/es6-promise.d.ts": {
+      "commit": "f11e49cfb77f99678657ddfe5d43017849675c64"
+    },
+    "yamljs/yamljs.d.ts": {
+      "commit": "f11e49cfb77f99678657ddfe5d43017849675c64"
+    },
+  }
 }
