@@ -1,3 +1,3 @@
 interface ObjectConstructor {
-    assign(target: any, ...sources: any[]): any;
+  assign(target: any, ...sources: any[]): any;
 }

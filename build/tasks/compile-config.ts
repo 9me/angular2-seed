@@ -1,4 +1,3 @@
-// import {writeFile} from 'fs';
 import * as gulp from 'gulp';
 import * as file from 'gulp-file';
 import {join} from 'path';
@@ -13,7 +12,7 @@ let pkg = require(join(ROOT_PATH, 'package.json'));
  */
 export default function compileConfig() {
   let fileContents: string = getConfigFileContents();
-  return file(COMPILED_CONFIG_FILE, fileContents, {
+  return file(CONFIG_FILE, fileContents, {
     src: true
   }).pipe(gulp.dest(APP_SRC));
 }
