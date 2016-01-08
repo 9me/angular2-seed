@@ -2,19 +2,17 @@ import * as gulp from 'gulp';
 import * as file from 'gulp-file';
 import {join} from 'path';
 import config from '../utils/merged-config';
-import {ROOT_PATH, APP_SRC, CONFIG_PATH, CONFIG_FILE} from '../config';
+import {ROOT_PATH, CONFIG_PATH, CONFIG_FILE} from '../config';
 
 //Get package information
 let pkg = require(join(ROOT_PATH, 'package.json'));
 
 /**
- * Task to write config file
+ * Task to get file stream for config file
  */
-export default function compileConfig() {
+export default function compiledConfig() {
   let fileContents: string = getConfigFileContents();
-  return file(CONFIG_FILE, fileContents, {
-    src: true
-  }).pipe(gulp.dest(APP_SRC));
+  return file(CONFIG_FILE, fileContents);
 }
 
 /**

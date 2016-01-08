@@ -11,7 +11,7 @@ build/typings/tsd
 
 # App
 app/config.ts
-config/local.yml
+config/local.*
 dist
 public
 
