@@ -2,14 +2,17 @@
 <html ng-controller="AppCtrl">
 <head>
   <base href="/">
-  <title ng-bind="App.title">My Application</title>
+  <title>My Application</title>
   <meta charset="utf-8">
   <meta name="author" content="">
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="favicon.png">
   <!-- inject:css -->
   <!-- endinject -->
+</head>
+<body lang="en">
+  <my-app>Loading...</my-app>
   <!-- inject:js -->
   <!-- endinject -->
   <script>
@@ -17,9 +20,9 @@
     //into another folder probably, not bundles. Let's check out the angular2 seed project
     //for inspiration
     System.config({
-      map: {
-        app: 'bundles/app'
-      },
+      // map: {
+      //   app: 'app'
+      // },
       packages: {
         app: {
           format: 'register',
@@ -29,9 +32,6 @@
     });
     System.import('app/boot');
   </script>
-</head>
-<body lang="en">
-  <my-app>Loading...</my-app>
   <!-- @if ENV='production' -->
   <script async src='//www.google-analytics.com/analytics.js'></script>
   <!-- @endif -->
