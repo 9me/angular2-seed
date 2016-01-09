@@ -13,7 +13,6 @@ build/typings/tsd
 app/config.ts
 config/local.*
 dist
-public
 
 # Logs
 logs
