@@ -1,3 +1,5 @@
+![Meanie](https://raw.githubusercontent.com/meanie/meanie/master/meanie-logo-full.png)
+
 # Angular 2 seed project
 
 [![github release](https://img.shields.io/github/release/meanie/angular2-seed.svg)](https://github.com/meanie/angular2-seed/releases)
