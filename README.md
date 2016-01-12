@@ -15,7 +15,22 @@ This seed project is built to work together side by side with the [Express seed]
 The build process for this seed project is powered by the Gulp 4 task runner.
 
 ## Installation
-You can install this seed project either by manually cloning the repository, or by using the [Meanie CLI](https://www.npmjs.com/package/meanie).
+You can install this seed project either by manually cloning the repository, or by using the [Meanie CLI](https://www.npmjs.com/package/meanie), which will make the process a bit easier.
+
+If you don't have the Meanie CLI tool installed, you can get it using:
+
+```shell
+npm install -g meanie
+```
+
+### Using the Meanie CLI
+```shell
+# Seed a new Angular 2 project in the current directory
+meanie seed angular2
+
+# Seed a new Angular 2 project in the specified directory
+meanie seed angular2 my-project
+```
 
 ### Cloning from github
 ```shell
@@ -23,29 +38,13 @@ You can install this seed project either by manually cloning the repository, or 
 mkdir my-project
 cd my-project
 
-# Clone repository
+# Clone repository, remove .git folder
 git clone https://github.com/meanie/angular2-seed.git .
+rm -rf .git
 
 # Install dependencies
 npm install
 ```
-
-### Using the Meanie CLI
-This feature will be available shortly.
-<!-- ```shell
-# Create empty project directory
-mkdir my-project
-cd my-project
-
-# Seed a new Angular 2 project
-meanie seed angular2
-```
-
-If you don't have the Meanie CLI tool installed, you can install it using:
-
-```shell
-npm install -g meanie
-```  -->
 
 ## Running the project
 Once installed, you can run the project using:
@@ -54,7 +53,7 @@ Once installed, you can run the project using:
 npm start
 ```
 
-This will build the app, launch lite-server and watch for file changes and rebuild as needed.
+This will build the app, launch lite-server and watch for file changes and rebuild as needed. Look in the `package.json` for other scripts available to you.
 
 ## Folder structure
 
