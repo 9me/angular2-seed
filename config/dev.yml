@@ -6,16 +6,11 @@
 # Application settings
 APP_NAME: '${pkg.name}'
 APP_VERSION: '${pkg.version}'
-APP_TITLE: 'My Application [dev]'
-APP_BASE_URL: 'http://localhost:8080'
+APP_TITLE: 'My Application'
 
 # API settings
-API_VERSION: 1
-API_BASE_URL: 'http://localhost:8081'
+API_PORT: 8081
+API_BASE_PATH: '/api'
 
 # Authentication settings
 AUTH_CLIENT_IDENTIFIER: '${pkg.name}'
-
-# Analytics settings
-ANALYTICS_ENABLED: false
-ANALYTICS_TRACKING_ID: ''

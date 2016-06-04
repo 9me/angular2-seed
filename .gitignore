@@ -1,19 +1,12 @@
-# OS & editors
+# Common
 .DS_Store
 Thumbs.db
 *.sublime-*
-.idea
-.vscode
-
-# External
+*.log
 node_modules
-build/typings/tsd
 
 # App
 app/config.ts
 config/local.*
 dist
-
-# Logs
-logs
-*.log
+typings

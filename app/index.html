@@ -16,21 +16,11 @@
   <!-- inject:js -->
   <!-- endinject -->
   <script>
-    //TODO: for development, the app files can be read via XHR requests, and should be placed
-    //into another folder probably, not bundles. Let's check out the angular2 seed project
-    //for inspiration
-    System.config({
-      // map: {
-      //   app: 'app'
-      // },
-      packages: {
-        app: {
-          format: 'register',
-          defaultExtension: 'js'
-        }
-      }
-    });
-    System.import('app/boot');
+    System
+      .import('app')
+      .catch(function(err) {
+        console.error(err);
+      });
   </script>
   <!-- @if ENV='production' -->
   <script async src='//www.google-analytics.com/analytics.js'></script>

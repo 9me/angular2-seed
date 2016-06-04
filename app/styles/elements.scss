@@ -1,0 +1,49 @@
+
+/**
+ * HTML and body
+ */
+html {
+	font-size: 100%;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+}
+body {
+	font-family: $fontFamily;
+	font-size: $fontSizeNormal;
+	font-weight: $fontWeightNormal;
+	color: $colorText;
+	background:	$colorWhite;
+  > ui-view {
+    height: 100%;
+  }
+}
+
+/**
+ * Images
+ */
+img {
+	max-width: 100%;
+}
+
+/**
+ * Input elements
+ */
+button, input, select, textarea {
+	font-family: $fontFamily;
+	font-size: $fontSizeNormal;
+	font-weight: $fontWeightNormal;
+	color: $colorText;
+}
+
+/**
+ * Tables
+ */
+table {
+  border-spacing: 0;
+	@include verticallySpaced;
+	td, th {
+		line-height: $lineHeight;
+	}
+}

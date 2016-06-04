@@ -1,0 +1,60 @@
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: $fontWeightNormal;
+}
+h1 {
+	font-size: 2rem;
+	@include verticallySpaced;
+  @include breakPointMedium {
+    font-size: 2.5rem;
+  }
+}
+
+/**
+ * Paragraphs
+ */
+p {
+	font-size: $fontSizeNormal;
+	line-height: $lineHeight;
+	@include verticallySpaced;
+}
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: $spacingLarge;
+	line-height: $lineHeight;
+	@include verticallySpaced;
+}
+
+/**
+ * Links
+ */
+a {
+	color: $colorTextLink;
+	text-decoration: none;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:hover, &:active {
+		outline: none;
+	}
+}
+
+/**
+ * Text styles
+ */
+strong, .bold {
+	font-weight: $fontWeightBold;
+}
+em, .italic {
+	font-style: $fontStyleItalic;
+}
+small, .small {
+	font-size: $fontSizeSmall;
+}

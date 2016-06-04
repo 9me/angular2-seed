@@ -1,16 +1,24 @@
 
 /**
- * Load variables and main layout entry point
+ * Header and footer
  */
-@import '../layout/variables';
-@import '../layout/layout';
+@import 'header/header';
+@import 'footer/footer';
 
 /**
- * Load modules layout
+ * App wrapper
  */
-// @import '../home/home';
+.app-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	min-height: 100%;
+}
 
 /**
- * Overrides at the end
+ * App contents
  */
-@import '../layout/common/overrides';
+.app-contents {
+	padding: $spacingLarge 0;
+	flex: 1;
+}

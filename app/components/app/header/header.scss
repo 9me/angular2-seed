@@ -1,0 +1,41 @@
+
+/**
+ * App header
+ */
+.app-header {
+	height: $headerHeight;
+	background: $colorPrimary;
+
+	/**
+	 * Navigation
+	 */
+	nav {
+		height: $headerHeight;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 (-1 * $spacing);
+		.menu {
+			height: 100%;
+			font-size: 0;
+			> li {
+				height: 100%;
+				display: inline-block;
+				list-style:	none;
+				> a {
+					height: 100%;
+					line-height: $headerHeight;
+					padding: 0 $spacing;
+					display: block;
+					font-size: $fontSizeNormal;
+					cursor: pointer;
+					color: $colorWhite;
+					&:hover {
+						text-decoration: none;
+						background: fade-out($colorBlack, .9);
+					}
+				}
+			}
+		}
+	}
+}

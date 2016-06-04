@@ -1,5 +1,11 @@
 
 /**
- * Load app component
+ * SCSS index
  */
-@import 'components/app/app';
+@import 'styles/variables';
+@import 'styles/tools';
+@import 'styles/reset';
+@import 'styles/elements';
+@import 'styles/layout';
+@import 'styles/components';
+@import 'styles/utility';
