@@ -3,11 +3,12 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "sourceMap": true,
+    "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "outDir": "dist/dev/app"
   },
   "exclude": [
     "node_modules",
@@ -15,6 +16,7 @@
     "config",
     "dist",
     "typings",
-    "app/assets"
+    "app/assets",
+    "app/styles"
   ]
 }
