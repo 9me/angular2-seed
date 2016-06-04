@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ENV } from 'config';
+// import { ENV } from 'config';
 
 @Component({
 	selector: 'my-app',
