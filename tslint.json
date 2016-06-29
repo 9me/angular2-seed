@@ -1,0 +1,15 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "quotemark": [true, "single"],
+    "max-line-length": [true, 80],
+    "object-literal-sort-keys": false,
+    "no-var-requires": false,
+    "comment-format": false,
+    "member-access": false,
+    "trailing-comma": [true, {
+      "multiline": "never",
+      "singleline": "never"
+    }]
+  }
+}

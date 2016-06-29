@@ -28,7 +28,7 @@
     'router'
   ];
 
-  //Individual files (~300 requests):
+  //Individual files
   function packIndex(pkgName) {
     packages['@angular/' + pkgName] = {
       main: 'index.js',
@@ -36,7 +36,7 @@
     };
   }
 
-  //Bundled (~40 requests):
+  //Bundled
   function packUmd(pkgName) {
     packages['@angular/' + pkgName] = {
       main: pkgName + '.umd.js',
@@ -44,7 +44,7 @@
     };
   }
 
-  //Most environments should use UMD; some (Karma) need the individual index files
+  //Most environments should use UMD; some (Karma) need the individual files
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
 
   //Add package entries for angular packages

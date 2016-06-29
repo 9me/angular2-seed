@@ -20,13 +20,12 @@
   },
   "keywords": [],
   "engines": {
-    "node": ">=6.2.0",
+    "node": ">=6.2.1",
     "npm": ">=3.8.9"
   },
   "scripts": {
     "postinstall": "typings install",
     "reinstall": "rimraf node_modules && npm cache clean && npm install",
-    "prebuild": "tsc",
     "build": "gulp build --env dev",
     "build:prod": "gulp build --env prod",
     "serve": "node build/serve.js --env dev",
@@ -77,6 +76,7 @@
     "gulp-remove-html-comments": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
+    "gulp-typescript": "^2.13.6",
     "gulp-uglify": "^1.5.2",
     "gulp-wrapper": "^1.0.0",
     "jasmine-core": "^2.4.1",
